@@ -165,7 +165,19 @@ urlpatterns = [
 ``` python
 
 ```
-> ## .html
+> ## post_confirm_delete.html
 ``` python
+{% extends 'app/base.html' %}
 
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <form action="" method="POST">
+                <p>{{ post.title }}を削除します。</p>
+                <button type="submit" class="button is-danger">送信</button>
+                {% csrf_token %}
+            </form>
+        </div>
+    </section>
+{% endblock %}
 ```

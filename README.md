@@ -157,9 +157,31 @@ urlpatterns = [
 </html>
 ```
 
-> ## .html
+> ## post_list.html
 ``` python
+{% extends 'app/base.html' %}
 
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">Post List</h1>
+        {% for post in post_list %}
+        <div class="box">
+            <div class="columns">
+                <div class="column is-10">
+                    <h2>{{ post.title }}</h2>
+                </div>
+                <div class="column is-2">
+                    <a href="{% url 'app:post_update' post.pk %}" class="button is-info">Edit</a>
+                    <a href="{% url 'app:post_delete' post.pk %}" class="button is-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
 ```
 > ## post_form.html
 ``` python

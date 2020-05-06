@@ -97,7 +97,7 @@ urlpatterns = [
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-<!-- ナビバー部分 -->
+<!-- nav bar part -->
 <nav class="navbar is-black" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
@@ -116,7 +116,7 @@ urlpatterns = [
         </div>
 </nav>
 
-<!-- メッセージフレームワーク -->
+<!-- message framework -->
 {% if messages %}
 <div class="container" style="margin-top:1rem;">
     <div class="notification is-info">
@@ -129,20 +129,20 @@ urlpatterns = [
 {% endif %}}
 
 
-<!-- メインコンテンツ -->
+<!-- main content -->
 <main>
     {% block content %}{% endblock %}
 </main>
 
 <script>
-    // notificationを×押下で閉じれるように。
+    // to close a notification by x
     for (const element of document.querySelectorAll('.notification > .delete')) {
         element.addEventListener('click', e => {
             e.target.parentElement.classList.add('is-hidden');
         });
     }
 
-    // ナビバーの開閉を設定
+    // open/close nav bar
     for (const element of document.querySelectorAll('.navbar-burger')) {
         const menuId = element.dataset.target;
         const menu = document.getElementById(menuId);
